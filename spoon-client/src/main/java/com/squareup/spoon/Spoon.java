@@ -132,7 +132,11 @@ public final class Spoon {
 
     private static void drawDecorViewToBitmap(Activity activity, Bitmap bitmap) {
         Canvas canvas = new Canvas(bitmap);
-        activity.getWindow().getDecorView().draw(canvas);
+        try {
+            activity.getWindow().getDecorView().draw(canvas);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private static File obtainScreenshotDirectory(Context context) throws IllegalAccessException {
